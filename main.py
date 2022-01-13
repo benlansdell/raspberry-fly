@@ -2,6 +2,7 @@ import logging
 import os
 import math
 from nearby import RtlScanner, nearby
+from scrape import flight_info
 from flask import Flask
 from flask_ask import Ask, request, session, question, statement
 
@@ -25,14 +26,21 @@ def launch():
 def get_flights(status, room):
     ##Parse aircraft.json
     flight, dist = nearby(scanner)
-    typ = 'Boeing'
+    info = flight_info(flight)
+    typ = info['aircraft'] if info is not None else None
+    if typ:
+        if typ[0].upper() in 'AEIOU': article = 'an'
+        else: article = 'a'
+        typ_str = 'is {} {} with'.format(article, typ)
+    else:
+        typ_str = 'has'
     alt = round(flight['altitude'])
     if flight is None:
         return statement("Could not find any planes nearby. Try again later.")
     else:
         #TODO
         # Add plane type
-        return statement('<speak>The closest plane is a {} with callsign <say-as interpret-as="spell-out">{}</say-as> . It\'s {} miles away, with an altitude of {} feet.</speak>'.format(typ, flight['callsign'].replace(' ', ''), \
+        return statement('<speak>The closest plane {} callsign <say-as interpret-as="spell-out">{}</say-as> . It\'s {} miles away, with an altitude of {} feet.</speak>'.format(typ_str, flight['callsign'].replace(' ', ''), \
             int(dist), alt))
 
 #<say-as interpret-as="spell-out">hello</say-as>
