@@ -1,13 +1,16 @@
-# Raspberry fly
+# RaspberryFly
 
-Code for a flask-ask server, that can be used as the basis for an alexa skill, that tells you about planes flying overhead. 
+Flask-ask code for an alexa skill that tells you about planes flying overhead. Meaning you can ask your Alexa things like:
 
-This is a combination of these two blog posts:
+`Alexa ask raspberry pi what planes are overhead`
 
+and it will read the information from your local ADSB receiver. This does mean you must have one setup locally for this to work. If you're not interested in alexa using your own data, there are published Alexa skills out there that will probe ADSBExchange for nearby flights. Of course, ADSBExchange may not have good coverage in your area. 
 
-The skill for Alexa will be made using Flask-Ask. For establishing connection we will be using ngrok. ngrok establishes a HTTP tunnel from Raspberry Pi to Alexa. The endpoint url will change every time ngrok is restarted, as an alternative you can use pagekite.
+This repo is a combination of these two blog posts/repos:
 
-For detailed information visit https://www.hackster.io/nishit-patel/controlling-raspberry-pi-using-alexa-33715b.
+* https://www.hackster.io/nishit-patel/controlling-raspberry-pi-using-alexa-33715b.
+* https://github.com/Syps/alexa-airplane-spotter
 
-Cheers,
-BL
+The skill for Alexa uses flask-ask. For establishing connection to the raspberry pi it uses ngrok. ngrok establishes a HTTP tunnel from Raspberry Pi to Alexa. The endpoint url will change every time ngrok is restarted, as an alternative you can use pagekite.
+
+See the accompanying blog post for more information on how to get everything setup. 
