@@ -35,13 +35,15 @@ def get_flights(status, room):
     else:
         typ_str = 'has'
     alt = round(flight['altitude'])
+    dist = int(dist)
+    if dist == 1: dist = f'{} mile'.format(dist)
+    else: dist = '{} miles'.format(dist)
+
     if flight is None:
         return statement("Could not find any planes nearby. Try again later.")
     else:
-        #TODO
-        # Add plane type
-        return statement('<speak>The closest plane {} callsign <say-as interpret-as="spell-out">{}</say-as> . It\'s {} miles away, with an altitude of {} feet.</speak>'.format(typ_str, flight['callsign'].replace(' ', ''), \
-            int(dist), alt))
+        return statement('<speak>The closest plane {} callsign <say-as interpret-as="spell-out">{}</say-as> . It\'s {} away, with an altitude of {} feet.</speak>'.format(typ_str, flight['callsign'].replace(' ', ''), \
+            dist, alt))
 
 #<say-as interpret-as="spell-out">hello</say-as>
 
