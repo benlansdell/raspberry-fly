@@ -13,4 +13,4 @@ This repo is a combination of these two blog posts/repos:
 
 The skill for Alexa uses flask-ask. For establishing connection to the raspberry pi it uses ngrok. ngrok establishes a HTTP tunnel from Raspberry Pi to Alexa. The endpoint url will change every time ngrok is restarted, as an alternative you can use pagekite.
 
-See the accompanying blog post for more information on how to get everything setup. 
+See [this accompanying blog post](https://benlansdell.github.io/expositions/posts/raspberryfly) for more information on how to get everything setup. 
