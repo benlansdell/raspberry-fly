@@ -20,17 +20,30 @@
                     "samples": []
                 },
                 {
-                    "name": "GpioIntent",
-                    "slots": [
-                        {
-                            "name": "status",
-                            "type": "STATUS"
-                        }
-                    ],
+                    "name": "FlightIntent",
+                    "slots": [],
                     "samples": [
-                        "turn light {status}",
-                        "turn {status} light"
+                        "what plane is closest",
+                        "what planes are nearby",
+                        "what is overhead",
+                        "what planes are overhead",
+                        "tell me overhead flights",
+                        "tell me nearby flights",
+                        "tell me what planes are overheard",
+                        "tell me what plane is overhead",
+                        "tell me overhead planes",
+                        "tell me nearby planes",
+                        "tell me what plane is closest",
+                        "tell me closest plane"
                     ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.SearchAction<object@Event>",
+                    "samples": []
                 }
             ],
             "types": [
