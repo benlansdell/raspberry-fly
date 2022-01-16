@@ -36,7 +36,7 @@ def get_flights(status, room):
         typ_str = 'has'
     alt = round(flight['altitude'])
     dist = int(dist)
-    if dist == 1: dist = f'{} mile'.format(dist)
+    if dist == 1: dist = '{} mile'.format(dist)
     else: dist = '{} miles'.format(dist)
 
     if flight is None:
